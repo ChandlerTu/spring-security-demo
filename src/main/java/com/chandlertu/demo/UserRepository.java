@@ -16,7 +16,7 @@ public interface UserRepository extends Repository<User, Integer> {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	Optional<User> findById(Integer id);
 
-	public User findByUsername(String username);
+	User findByUsername(String username);
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	<S extends User> S save(S entity);

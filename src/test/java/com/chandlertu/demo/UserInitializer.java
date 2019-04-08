@@ -20,6 +20,7 @@ public class UserInitializer {
 	@WithMockUser(roles = { "ADMIN" })
 	public void initialize() {
 		PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+
 		userRepository.save(new User("admin", passwordEncoder.encode("admin"), "ROLE_ADMIN"));
 		userRepository.save(new User("security", passwordEncoder.encode("security"), "ROLE_SECURITY"));
 		userRepository.save(new User("audit", passwordEncoder.encode("audit"), "ROLE_AUDIT"));
